@@ -5,7 +5,7 @@ int total = 1;
 void setup() {
   size(640,360);
   for (int i=0; i<balls.length; i++) {
-    balls[i] = new Ball(random(10,100));
+    balls[i] = new Ball(i*2);
   }
 }
 
