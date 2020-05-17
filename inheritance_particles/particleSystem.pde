@@ -3,7 +3,7 @@ class ParticleSystem {
   ArrayList<Particle> particles;
   PVector origin;
   
-  ParticleSystem(int num, PVector v) {
+  ParticleSystem(PVector v) {
     particles = new ArrayList<Particle>();
     origin = v.copy();
   }
@@ -20,7 +20,13 @@ class ParticleSystem {
   }
   
   void addParticle() {
-    particles.add(new Square(origin));
+    //Polymorphism!!
+    float r = random(1);
+    if(r < 0.4) { 
+      particles.add(new Square(origin));
+    } else {
+      particles.add(new Particle(origin));
+    }
   }
   
 }
