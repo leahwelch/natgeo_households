@@ -5,10 +5,7 @@ class ParticleSystem {
   
   ParticleSystem(int num, PVector v) {
     particles = new ArrayList<Particle>();
-    origin = v.get();
-    for (int i=0; i<num; i++) {
-      particles.add(new Particle(origin));
-    }
+    origin = v.copy();
   }
   
   void generate() {
