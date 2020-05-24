@@ -1,0 +1,57 @@
+class Box {
+  Body body;
+  
+  float x,y;
+  float w,h;
+  
+  Box(float tempx, float tempy) {
+    x = tempx;
+    y = tempy;
+    
+    w = random(4,16);
+    h = random(4,16);
+    
+    //Define Body
+    BodyDef bd = new BodyDef();
+    bd.type = BodyType.DYNAMIC;
+    bd.position.set(box2d.coordPixelsToWorld(x,y));
+    
+    //Create Body
+    body = box2d.createBody(bd);
+    
+    //Create Shape
+    PolygonShape ps = new PolygonShape();
+    float box2Dw = box2d.scalarPixelsToWorld(w/2);
+    float box2Dh = box2d.scalarPixelsToWorld(h/2);
+    ps.setAsBox(box2Dw,box2Dh);
+    
+    //Create Fixture
+    FixtureDef fd = new FixtureDef();
+    fd.shape = ps;
+    //Parameters that define the physics
+    fd.density = 1.0;
+    fd.friction = 0.3;
+    fd.restitution = 0.5;
+    
+    //Attach Shape to Body with Fixture
+    body.createFixture(fd);
+  }
+  
+  void display() {
+    Vec2 pos = box2d.getBodyPixelCoord(body);
+    float a = body.getAngle();
+    
+    pushMatrix();
+    translate(pos.x,pos.y);
+    rotate(-a);
+    stroke(0);
+    fill(127,0,0);
+    rectMode(CENTER);
+    rect(0,0,w,h);
+    popMatrix();
+  }
+  
+} 
+  
+  
+  
