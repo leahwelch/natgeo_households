@@ -16,7 +16,7 @@ void setup() {
   physics.setWorldBounds(new Rect(0, 0, width, height));
 
   // Initialize the chain
-  chain = new Chain(180, 20, 16, 0.2);
+  chain = new Chain(180, 20, 16, 0.05);
 }
 
 void draw() {
