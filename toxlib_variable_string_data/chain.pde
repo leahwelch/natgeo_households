@@ -5,8 +5,9 @@ class Chain {
   //int numPoints;      // How many points
   float strength;     // Strength of springs
   float radius;       // Radius of ball at tail
+  int distance;
   
-  int[] ages = {43,38,17,14,11,8,7,5,1};
+  int[] ages = {42,38,17/*,14,11,8,7,5,1*/};
   
   color col;
   
@@ -23,29 +24,29 @@ class Chain {
   boolean dragged = false;
 
   // Chain constructor
-  Chain(float l, int n, float r, float s) {
+  Chain(float l, float r, float s) {
     particles = new ArrayList<Particle>();
 
     totalLength = l;
-    n = ages.length;
     radius = r;
     strength = s;
 
     float len = totalLength / ages.length;
 
     // Here is the real work, go through and add particles to the chain itself
-    for(int i=0; i < ages.length; i++) {
+       
+    for(int i=0; i < ages.length + 1; i++) {
       // Make a new particle with an initial starting position
       Particle particle;
       if(i==0) {
-        particle=new Particle(width/2,i*len, 0);
-      }else{
-        particle=new Particle(width/2,i*len, ages[i]*5);
+        particle=new Particle(width/2,0);
       }
+        //particle=new Particle(width/2,distance); //this isn't exactly working right
+
 
       // Redundancy, we put the particles both in physics and in our own ArrayList
-      physics.addParticle(particle);
-      particles.add(particle);
+      physics.addParticle(new Particle(width/2,distance));
+      particles.add(new Particle(width/2,distance));
 
       // Connect the particles with a Spring (except for the head)
       if (i != 0) {
@@ -63,6 +64,14 @@ class Chain {
     // Store reference to the tail
     tail = particles.get(ages.length-1);
     //tail.radius = radius;
+  }
+
+  //Trying to figure out how to dynamially update the distance between vertices based on data
+  void updateDistance() {
+    distance = 0;
+    for(int i=0; i < ages.length + 1; i++) { 
+      distance += ages[i-1];
+    }
   }
 
   // Check if a point is within the ball at the end of the chain
@@ -98,10 +107,11 @@ class Chain {
     strokeWeight(2);
     noFill();
     for (Particle p : particles) {
-      vertex(p.x,p.y+p.dist);
       //col = round(map(p.dist, 1, 10, 0, 255));
+      vertex(p.x,p.y);
     }
     endShape();
     //tail.display();
+    
   }
 }
