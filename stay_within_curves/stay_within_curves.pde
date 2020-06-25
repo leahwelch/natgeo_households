@@ -16,7 +16,7 @@ void setup() {
   boids = new ArrayList();
   
   circleposition = new PVector(bx/4-25,by/4-25);
-  circleRadius = 160;
+  circleRadius = 170;
   //v = new Vehicle(0,0);
 }
 
