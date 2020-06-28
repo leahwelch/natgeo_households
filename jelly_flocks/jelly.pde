@@ -12,6 +12,11 @@ class Jelly {
   float r;
   float maxforce;    // Maximum steering force
   float maxspeed;    // Maximum speed
+  
+  //oscillation stuff
+  PVector a,b;
+  float amplitude = 3;
+  float angle = 0.0;
 
   Jelly(float cx_, float cy_, float x_, float y_, color col_, PImage soft_) {
     col = col_;
@@ -23,10 +28,13 @@ class Jelly {
     velocity = new PVector(random(2,5),random(2,5));
     position = new PVector(cx,cy);
     r = 30.0;
-    maxspeed = 4;
+    maxspeed = 3;
     maxforce = 0.1;
     x = x_;
     y = y_;
+    
+    a = new PVector(-x, y/2);
+    b = new PVector(x, y/2);
   }
 
   void run(ArrayList<Jelly> jellies) {
@@ -34,7 +42,6 @@ class Jelly {
     update();
     borders();
     render();
-    breathe();
   }
 
   void applyForce(PVector force) {
@@ -66,6 +73,8 @@ class Jelly {
     position.add(velocity);
     // Reset accelertion to 0 each cycle
     acceleration.mult(0);
+    
+    angle += velocity.mag()/10;
   }
 
   // A method that calculates and applies a steering force towards a target
@@ -83,6 +92,12 @@ class Jelly {
   
   void render() {
     // Draw a triangle rotated in the direction of velocity
+    a.x = map(sin(angle),-1,1,a.x,-amplitude);
+    a.y = amplitude * sin(angle)+10;
+    
+    b.x = map(sin(angle),-1,1,b.x,3*amplitude/2);
+    b.y = amplitude * sin(angle)+10;
+    
     float theta = velocity.heading() + radians(90);
     noFill();
     
@@ -103,20 +118,23 @@ class Jelly {
     stroke(col);
     beginShape();
     curveVertex(4*x, y);
-    curveVertex(-x, y/2);
+    curveVertex(a.x, a.y);
     curveVertex(-2*x, 0);
     curveVertex(-x, -y);
     curveVertex(x, -y);
     curveVertex(2*x, 0);
-    curveVertex(x, y/2);
-    curveVertex(-x, y/2);
+    curveVertex(b.x, b.y);
+    curveVertex(x/8,y);
+    curveVertex(a.x, a.y);
     
     curveVertex(-2*y, y-y);
     endShape(CLOSE);
     pop();
+    
+    angle += 0.05;
   }
   
-  void breathe() {
+  /*void breathe() {
     x = map(noise(tx),0,1, 8, 12);
     y = map(noise(ty),0,1, 12, 18);
     
@@ -124,7 +142,7 @@ class Jelly {
     ty += 0.05;
     
     //if (debug) drawVertices(); 
-  }
+  }*/
 
   // Wraparound
   void borders() {
