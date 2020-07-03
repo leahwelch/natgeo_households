@@ -25,7 +25,7 @@ class Jelly {
     
     springs = new ArrayList<Chain>();
     for(int i = -30; i < 30; i+=5) {
-      springs.add(new Chain(120, 20, 16, 0.2, i, -40)); 
+      springs.add(new Chain(random(100,200), 30, 16, 0.2, i, -40, int(random(50,255)), int(random(1,3)))); 
     }
     
     //Movement stuff

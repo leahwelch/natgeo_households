@@ -6,6 +6,7 @@ class Chain {
   float strength;     // Strength of springs
   float radius;       // Radius of ball at tail
   int x,y;            //position variables
+  int a,w;
   
   // This list is redundant since we can ask for physics.particles, but in case we have many of these
   // it's a convenient to keep track of our own list
@@ -20,7 +21,7 @@ class Chain {
   boolean dragged = false;
 
   // Chain constructor
-  Chain(float l, int n, float r, float s, int x_, int y_) {
+  Chain(float l, int n, float r, float s, int x_, int y_, int a_, int w_) {
     particles = new ArrayList<Particle>();
 
     totalLength = l;
@@ -29,6 +30,8 @@ class Chain {
     strength = s;
     x = x_;
     y = y_;
+    a = a_;
+    w = w_;
     
     tx = 0;
     ty = 1000;
@@ -65,17 +68,14 @@ class Chain {
   // Draw the chain
   void display() {
     // Draw line connecting all points
-    //translate(width/2, height/2);
     beginShape();
-    stroke(51,153,255,100);
+    strokeWeight(w);
+    stroke(51,153,255,a);
     
     // OMG set this to perlin noise??
     //and set the heads too/make the heads at more specific locations
     tail.set(int(map(noise(tx),0,1, x-10, x+10)), int(map(noise(ty),0,1, y+80,y+130)));
-    //x = int(map(noise(tx),0,1, x-10, x+10));
-    //y = int(map(noise(ty),0,1, height/2+110, height/2+90));
     
-    //strokeWeight(2);
     noFill();
     for (Particle p : particles) {
       vertex(p.x,p.y);
