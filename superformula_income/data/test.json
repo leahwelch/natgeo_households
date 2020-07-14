@@ -1,0 +1,39 @@
+{
+    "families": [
+        {    
+            "members":[
+                {
+                "type": "couple",  
+                "sex": 2, 
+                "income": 0
+                },
+                {
+                "type": "couple",
+                "sex": 1,
+                "income": 52000
+                },
+                {
+                "type": "child",
+                "sex": 1,
+                "income": 1000
+                }
+            ]
+        },
+        {
+            "members":[
+                {
+                "type": "couple",  
+                "sex": 1, 
+                "income": 50400
+                },
+                {
+                "type": "couple",
+                "sex": 2,
+                "income": 38400
+                }
+            ]
+        }   
+        
+    ]
+
+}

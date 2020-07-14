@@ -1,0 +1,23 @@
+{
+    "family": {
+        "couple":[
+            {  
+                "sex": 2, 
+                "income": 0,
+                "age": 42
+                },
+                {
+                "sex": 1,
+                "income": 52000,
+                "age": 49
+            }
+            ],
+        "children":[
+            {
+                "sex": 1,
+                "income": 1000,
+                "age": 25
+            }
+        ]
+    }
+}
