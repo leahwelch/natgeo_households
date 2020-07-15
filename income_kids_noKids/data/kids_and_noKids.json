@@ -1,0 +1,71 @@
+{
+    "families": [
+        {
+            "couple":[
+                {  
+                    "sex": 1, 
+                    "income": 83000,
+                    "age": 40
+                    },
+                    {
+                    "sex": 2,
+                    "income": 22000,
+                    "age": 39
+                }
+                ],
+            "children":[
+                {
+                    "sex": 2,
+                    "income": 0,
+                    "age": 15
+                    }, 
+                    {
+                    "sex": 1,
+                    "income": 0,
+                    "age": 11
+                    }, 
+                    {
+                    "sex": 2,
+                    "income": 0,
+                    "age": 7
+                } 
+            ] 
+        },
+        {
+            "couple":[
+                {  
+                    "sex": 1, 
+                    "income": 50400,
+                    "age": 79
+                    },
+                    {
+                    "sex": 2,
+                    "income": 38400,
+                    "age": 73
+                }
+            ]  
+        },
+        {
+            "couple":[
+                {  
+                    "sex": 2, 
+                    "income": 0,
+                    "age": 42
+                    },
+                    {
+                    "sex": 1,
+                    "income": 52000,
+                    "age": 49
+                }
+                ],
+            "children":[
+                {
+                    "sex": 1,
+                    "income": 1000,
+                    "age": 25
+                }
+                ]
+            }
+        ] 
+    }
+        
