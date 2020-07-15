@@ -2,30 +2,35 @@ class Distribution {
   
   final int famSize;
   final int income;
+  final int[] incomes;
+  
   ArrayList<Float> incomeDist = new ArrayList();
   ArrayList<Integer> opacities = new ArrayList();
   
   float income_;
-  
-  Distribution(int famSize, int income) {
+
+  Distribution(int famSize, int income, int[] incomes) {
     this.famSize = famSize;
     this.income = income;
+    this.incomes = incomes;
+    
+    printArray(incomes);
     
     income_ = float(income);
     
-    for(int i = 0; i < memberInc.size(); i++) {
-      incomeDist.add(memberInc.get(i)/income_);
+    for(int i = 0; i < incomes.length; i++) { 
+      incomeDist.add(incomes[i]/income_);
     }
-    for(int i = 0; i < incomeDist.size(); i++) {
+    for(int i = 0; i < famSize; i++) {
       opacities.add(int(map(incomeDist.get(i), 0, 1, 0, 255)));  
     }
   }
   
   void display() {
     stroke(255,0,0);
-    
-     for(int i = 0; i < famSize; i++){
+    for(int i = 0; i < famSize; i++){
       fill(255,0,0,opacities.get(i));
+      //fill(255);
       beginShape();
         for (float theta = i*(2* PI)/famSize; theta <= (i+1)*(2* PI)/famSize; theta += 0.01) {
           float rad = r(theta,
@@ -41,7 +46,7 @@ class Distribution {
           curveVertex(x,y);
         }
         endShape(CLOSE);
-     }
+       }
   }
   
 }

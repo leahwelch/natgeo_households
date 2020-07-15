@@ -1,5 +1,5 @@
 float t;
-float t1;
+
 Distribution d;
 Comparison c;
 
@@ -12,7 +12,6 @@ void setup() {
   size(500,500);
   smooth();
   
-  //coupleInc = new int[2];
   loadData();
 }
 
@@ -24,11 +23,11 @@ void draw() {
   c.display();
   
   t += 0.04;
-  t1 += 0.01;
+
 }
 
 void loadData() {
-  json = loadJSONObject("single.json"); //first entry from MS_children_2018
+  json = loadJSONObject("test2.json"); //first entry from MS_children_2018
   JSONObject family = json.getJSONObject("family");
   JSONArray children = family.getJSONArray("children");
   JSONArray couple = family.getJSONArray("couple");
@@ -44,7 +43,6 @@ void loadData() {
     for(int i = 0; i < memberInc.size(); i++) {
       income += memberInc.get(i);
     }
-   println(income);
   
   //getting size of family
   int numKids = children.size();
