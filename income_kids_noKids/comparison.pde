@@ -29,6 +29,8 @@ class Comparison {
           4.5, //n1
           map(cos(t), 0, 1, 8, 10), //n2
           map(sin(t), 0, 1, 8, 10) //n3
+          //8,
+          //8
         );
         float x = rad * cos(theta) * 60;
         float y = rad * sin(theta) * 60;

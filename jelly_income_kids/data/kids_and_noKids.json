@@ -1,0 +1,117 @@
+{
+    "families": [
+        {
+            "couple":[
+                {  
+                    "sex": 1, 
+                    "income": 46000,
+                    "age": 34
+                    },
+                    {
+                    "sex": 2,
+                    "income": 0,
+                    "age": 35
+                }
+                ],
+            "children":[
+                {
+                    "sex": 1,
+                    "income": 0,
+                    "age": 11
+                    }, 
+                    {
+                    "sex": 1,
+                    "income": 0,
+                    "age": 8
+                    }, 
+                    {
+                    "sex": 1,
+                    "income": 0,
+                    "age": 4
+                } 
+            ] 
+        },
+        {
+            "couple":[
+                {  
+                    "sex": 1, 
+                    "income": 70000,
+                    "age": 54
+                    },
+                    {
+                    "sex": 2,
+                    "income": 70000,
+                    "age": 53
+                }
+            ]  
+        },
+        {
+            "couple":[
+                {  
+                    "sex": 2, 
+                    "income": 0,
+                    "age": 33
+                    },
+                    {
+                    "sex": 1,
+                    "income": 16000,
+                    "age": 32
+                }
+                ],
+            "children":[
+                {
+                    "sex": 2,
+                    "income": 0,
+                    "age": 14
+                },
+                {
+                    "sex": 2,
+                    "income": 0,
+                    "age": 10
+                },
+                {
+                    "sex": 2,
+                    "income": 0,
+                    "age": 7
+                },
+                {
+                    "sex": 2,
+                    "income": 0,
+                    "age": 3
+                },
+                {
+                    "sex": 1,
+                    "income": 0,
+                    "age": 3
+                },
+                {
+                    "sex": 1,
+                    "income": 0,
+                    "age": 0
+                }
+                ]
+            },
+            {
+                "couple":[
+                    {  
+                        "sex": 1, 
+                        "income": 21000,
+                        "age": 49
+                        },
+                        {
+                        "sex": 2,
+                        "income": 90000,
+                        "age": 46
+                    }
+                    ],
+                "children":[
+                    {
+                        "sex": 2,
+                        "income": 0,
+                        "age": 18
+                    }
+                    ]
+                }
+        ] 
+    }
+        

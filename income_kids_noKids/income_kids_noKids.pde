@@ -63,10 +63,12 @@ void loadData() {
       for (int k = 0; k < famSize; k++) {
         incomes[k] = memberInc.get(k);  
       }
+      income = 0;
       for(int k = 0; k < memberInc.size(); k++) {
         income += memberInc.get(k);
       }
       families.add(new Family(famSize, income, incomes));
+      
     }
     
   }
